@@ -16,14 +16,14 @@ public class IndexController {
 	@Autowired
 	private LectorCorreos lectorCorreos;
 	
-	@GetMapping("/")
+	@GetMapping("/consulta")
 	public String index() {
 		return "consulta";
 	}
 	
-	@PostMapping("/consulta")
+	@PostMapping("/obtenerInformacion")
 	public String getMethodName(@RequestParam("correo") String pCorreo, Model model) {
-		String salida = lectorCorreos.lectorCorreos(pCorreo, "BellaMerylAgosto", "Saludo");
+		String salida = lectorCorreos.lectorCorreos(pCorreo, "vlieawfugcbuzhvi", "2-Step Verification turned on");
 		if(salida.contains("salida:")) {
 			model.addAttribute("mensaje", salida.replace("salida:", ""));
 		}else {

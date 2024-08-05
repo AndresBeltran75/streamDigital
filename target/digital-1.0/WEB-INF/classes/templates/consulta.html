@@ -22,6 +22,20 @@
 		            display: none;
 		            z-index: 1000;
 		        }
+		        
+                .form-container {
+		            max-width: 500px;
+		            margin: 0 auto;
+		            padding: 20px;
+		            border: 1px solid #ccc;
+		            border-radius: 5px;
+		            background-color: #f9f9f9;
+		        }
+		        
+		        .mensajes {
+		        	max-width: 500px;
+		            margin: 0 auto;
+		        }
 		</style>
 	</head>
 
@@ -29,31 +43,36 @@
 	
 		<div class="overlay" id="overlay"></div>
 	
-		<div class="spinner-container text-primary container mt-5" role="status" id="spinner" style="display: none">
-		  <span class="visually-hidden">Cargando...</span>
-		</div>
-	
 		<div class="container mt-5">
-			<form action="#" th:action="@{/consulta}" th:method="post" onsubmit="cargar()">
+		
+			<form action="#" class="form-container" th:action="@{/obtenerInformacion}" th:method="post" onsubmit="cargar()">
 			  <div class="mb-3">
 			    <label for="email" class="form-label">Correo:</label>
 			    <input type="email" class="form-control" id="correo" name="correo" aria-describedby="emailInfo">
 			    <div id="emailInfo" class="form-text">Ingrese el correo a validar</div>
 			  </div>
-			  <button type="submit" class="btn btn-primary">Consultar</button>
+			  <div class="d-grid gap-2">
+				  <button type="submit" class="btn btn-outline-primary">Consultar</button>
+			  </div>
+			  
+				<div class="mensajes mt-3">
+					<div class="alert alert-success" role="alert" th:if="${mensaje ne null}">
+					  <p th:utext="${mensaje}"/>
+					</div>
+					
+					<div class="alert alert-danger" role="alert" th:if="${error ne null}">
+					  <p th:text="${error}"/>
+					</div>
+				</div>
+			
+				<div class="spinner-grow spinner-container text-primary container mt-5" role="status" id="spinner">
+				  <span class="visually-hidden"></span>
+				</div>
+			  
 			</form>
+	
 		</div>
 		
-		<div class="container mt-3">
-			<div class="alert alert-success" role="alert" th:if="${mensaje ne null}">
-			  <p th:text="${mensaje}"/>
-			</div>
-			
-			<div class="alert alert-danger" role="alert" th:if="${error ne null}">
-			  <p th:text="${error}"/>
-			</div>
-		</div>
-	
 	</body>
 	
 	<script type="text/javascript">

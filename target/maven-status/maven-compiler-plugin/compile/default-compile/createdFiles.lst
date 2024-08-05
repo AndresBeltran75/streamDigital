@@ -2,3 +2,4 @@ com/streaming/digital/controller/IndexController.class
 com/streaming/digital/DigitalApplication.class
 com/streaming/digital/backing/LectorCorreos.class
 com/streaming/digital/ServletInitializer.class
+com/streaming/digital/backing/LectorCorreos$1.class

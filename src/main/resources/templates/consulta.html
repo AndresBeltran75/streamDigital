@@ -45,7 +45,7 @@
 	
 		<div class="container mt-5">
 		
-			<form action="#" class="form-container" th:action="@{/consulta}" th:method="post" onsubmit="cargar()">
+			<form action="#" class="form-container" th:action="@{/obtenerInformacion}" th:method="post" onsubmit="cargar()">
 			  <div class="mb-3">
 			    <label for="email" class="form-label">Correo:</label>
 			    <input type="email" class="form-control" id="correo" name="correo" aria-describedby="emailInfo">
@@ -57,7 +57,7 @@
 			  
 				<div class="mensajes mt-3">
 					<div class="alert alert-success" role="alert" th:if="${mensaje ne null}">
-					  <p th:text="${mensaje}"/>
+					  <p th:utext="${mensaje}"/>
 					</div>
 					
 					<div class="alert alert-danger" role="alert" th:if="${error ne null}">
