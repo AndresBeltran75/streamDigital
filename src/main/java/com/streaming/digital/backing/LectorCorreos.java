@@ -63,8 +63,6 @@ public class LectorCorreos {
             }
         });
 
-        emailSession.setDebug(true);
-
         try {
             Store store = emailSession.getStore("imaps");
             store.connect("imap.gmail.com", pCorreo, pClave);
@@ -81,6 +79,7 @@ public class LectorCorreos {
                 System.out.println("De: " + mimeMessage.getFrom()[0]);
                 System.out.println("Contenido: " + getTextFromMessage(mimeMessage));
                 mensaje = "salida:" + getTextFromMessage(mimeMessage);
+                break;
             }
 
             emailFolder.close(false);

@@ -23,7 +23,7 @@ public class IndexController {
 	
 	@PostMapping("/obtenerInformacion")
 	public String getMethodName(@RequestParam("correo") String pCorreo, Model model) {
-		String salida = lectorCorreos.lectorCorreos(pCorreo, "vlieawfugcbuzhvi", "2-Step Verification turned on");
+		String salida = lectorCorreos.lectorCorreos(pCorreo, "ahphbgqghlbjrpid", "Disney+");
 		if(salida.contains("salida:")) {
 			model.addAttribute("mensaje", salida.replace("salida:", ""));
 		}else {
